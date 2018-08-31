@@ -1,0 +1,37 @@
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <label>Server Name</label>
+      <input type="text" class="form-control" [(ngModel)]="newServerName">
+      <br>
+      <button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default" *ngFor="let itemObj of serverElement">
+        <div class="panel-heading">{{itemObj.name}}</div>
+        <div class="panel-body">
+          <strong style="color : red">
+            {{itemObj.content}}
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- Refactoring the code the Big component into Several Small Component -->
+
+<div class="container">
+  <app-input-panel></app-input-panel>
+  <hr>
+  <app-display-panel *ngFor="let elementObj of serverElement" [childCompo_Property]="elementObj"></app-display-panel>
+  <!-- 
+  [itemObj]="elementObj" ->"property binding the custome element" ie- 
+  itemObj is custom attribute (itemObj- property in the child Class) which 
+  is been binded on <app-dispaly-panel> which is cutome elem/tag.
+  Passing inform from Parent Comp (AppComp) to child comp (DisplayPanelComp)
+   -->
+</div>
