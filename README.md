@@ -103,3 +103,30 @@ Thus there r 2 ways to access the complete html element inside the (.ts) typesci
 
 ---------------------------------------------------------------------------------------------------------
 <ng-content></ng-content> -> is the directive, it is called ng-content hook
+
+
+---------------------------------------------------------------------------------------------------------
+Angular Life-cycle hook :-
+
+ngOnChanges() -> (is called after a bound input property changes) It is executed at the start when a compo is created. It also called multiple times when one of our bound input property changes (i.e - property decorated with @input() decorator)
+
+ngOnInit() -> (is called once the component is initalized). It runs after the constructor {}  is executed
+
+ngDoCheck() -> (is called during every changes detection run) It will check/run/executed if any property value changed from .ts file so as to display in Template, or any event occured on the template so as to invoke the respective func,....and soon ...
+Thus, this func is executed when event occurs, when observable was resolved, timer was fired ,property was changed, etc..
+[This is method runs at background in Angular to detect any changes as specifed above]
+
+ngAfterContentInit() -> (is called after content(ng-content) has been projected into view) this func is invoked when we use concept of <ng-content>
+
+ngAfterContentChecked() > (is called every time the projected content has been changed)
+
+ngAfterViewInit() -> (is called after the component's view (and child views) has been initalized)
+
+ngAfterViewChecked() -> (is called every time the view(and child views) has been checked )
+
+ngOnDestory() -> (is called once the component is about to be destoryed)
+
+
+---------------------------------------------------------------------------------------------------------
+
+

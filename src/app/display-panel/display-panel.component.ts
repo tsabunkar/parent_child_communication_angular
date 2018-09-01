@@ -1,13 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component, OnInit, Input, OnChanges, SimpleChanges,
+  DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, OnDestroy
+} from '@angular/core';
 
 @Component({
   selector: 'app-display-panel',
   templateUrl: './display-panel.component.html',
   styleUrls: ['./display-panel.component.css']
 })
-export class DisplayPanelComponent implements OnInit {
+export class DisplayPanelComponent implements OnInit, OnChanges, DoCheck,
+  AfterContentInit, AfterContentChecked, AfterContentInit, AfterViewChecked, OnDestroy {
 
- /*  @Input() itemObj: { name: string, content: string }; */
+  /*  @Input() itemObj: { name: string, content: string }; */
   //This is not the value for itemObj property/variable, 
   //it is the datatype of itemObj property, saying itemObj is of type Object,
   // which has name and content property
@@ -23,9 +27,65 @@ export class DisplayPanelComponent implements OnInit {
 
   @Input("childCompo_Property") itemObj: { name: string, content: string };//Assigning the Alias to Custome properties
 
-  constructor() { }
 
-  ngOnInit() {
+  //  #################### LIFE-CYCLE HOOK ##########################
+
+  //Life cycle hook called in below order :- 
+
+  constructor() {
+    console.log('constructor called !!');
+  }
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add '${implements OnChanges}' to the class.
+    console.log('ngOnChanges called');
+    console.log(changes);//gives the current state of web pages
+    //this func can used if we want to do state management of an elemt
+  }
+
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    console.log('ngOnInit called');
+  }
+
+  ngDoCheck() {
+    //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
+    //Add 'implements DoCheck' to the class.
+    console.log('ngDoCheck called'); //Whenever angular checks for any changes then this functon is invoked
+  }
+
+  ngAfterContentInit() {
+    //Called after ngOnInit when the component's or directive's content has been initialized.
+    //Add 'implements AfterContentInit' to the class.
+    console.log('ngAfterContentInit called');
+  }
+
+  ngAfterContentChecked() {
+    //Called after every check of the component's or directive's content.
+    //Add 'implements AfterContentChecked' to the class.
+    console.log('ngAfterContentChecked called');//it is called after any change is detected by angular
+  }
+
+  ngAfterViewInit() {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    console.log('ngAfterViewInit called');
+  }
+
+  ngAfterViewChecked() {
+    //Called after every check of the component's view. Applies to components only.
+    //Add 'implements AfterViewChecked' to the class.
+    console.log('ngAfterViewChecked called');
+  }
+
+  ngOnDestroy(): void { //This won't be called untill & unless we called it explicity by emitting an event
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    console.log('ngOnDestroy called');
   }
 
 }

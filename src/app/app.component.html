@@ -36,24 +36,27 @@
  -->
   <hr>
 
-  <!-- <app-display-panel *ngFor="let elementObj of serverElement" [childCompo_Property]="elementObj"></app-display-panel> -->
+  <app-display-panel *ngFor="let elementObj of serverElement" [childCompo_Property]="elementObj"></app-display-panel>
 
   <!-- 
-  [itemObj]="elementObj" ->"property binding the custome element" ie- 
-  itemObj is custom attribute (itemObj- property in the child Class) which 
+  [childCompo_Property]="elementObj" ->"property binding the custome element" ie- 
+  childCompo_Property is custom attribute (childCompo_Property- property in the child Class) which 
   is been binded on <app-dispaly-panel> which is cutome elem/tag.
   Passing inform from Parent Comp (AppComp) to child comp (DisplayPanelComp)
    -->
 
-  <!-- Understanding Concept of ng-content -->
 
+  <!-- #####################  <ng-content>  ####################### -->
+  <!-- Understanding Concept of ng-content -->
+  <!-- 
   <app-display-panel *ngFor="let elementObj of serverElement" [childCompo_Property]="elementObj">
     <div class="panel-body">
       <strong style="color : red">
         {{elementObj.content}}
       </strong>
     </div>
-  </app-display-panel>
+  </app-display-panel> -->
+  <!-- ############################################ -->
 
 </div>
 <hr>
