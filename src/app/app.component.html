@@ -25,14 +25,14 @@
 <!-- Refactoring the code the Big component into Several Small Component -->
 
 <div class="container">
-  <app-input-panel (parentComp_Event)="onAddServer($event)"></app-input-panel>
+  <app-input-panel (childComp_Event)="onAddServer($event)"></app-input-panel>
   <!-- 
-  (parentComp_Event)="onAddServer()" -> "event binding the custome element" i.e-
+  (childComp_Event)="onAddServer()" -> "event binding the custome element" i.e-
   parentCom_Event is our custome event which will trigger the onAddServer() function,
   This custome event (parentCom_Event) will be triggered/emitted only when child Component (InputPanelComp) 
   will emit an event [Child Compon -> Parent Compon], Bcoz Child Component has btn which were r listening
   too.
-  Note : parentComp_Event - is custome event which is specified in child Component.
+  Note : childComp_Event - is custome event which is specified in child Component.
  -->
   <hr>
   <app-display-panel *ngFor="let elementObj of serverElement" [childCompo_Property]="elementObj"></app-display-panel>
