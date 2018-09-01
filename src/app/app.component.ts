@@ -20,6 +20,15 @@ export class AppComponent {
  
    } */
   // Refactoring the code the Big component into Several Small Component 
-  serverElement: any = [{name :'Server', content :"Hi"}];
+  serverElement: any = [{ name: 'Server', content: "Hi" }];
+
+  onAddServer(severData: { serverName: string, serverContent: string }) {
+    this.serverElement.push(
+      {
+        'name': severData.serverName,
+        'content': severData.serverContent
+      }
+    )
+  }
 
 }
