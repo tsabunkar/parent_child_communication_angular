@@ -10,7 +10,8 @@ import { DisplayPanelComponent } from './display-panel/display-panel.component';
   declarations: [
     AppComponent,
     InputPanelComponent,
-    DisplayPanelComponent
+    DisplayPanelComponent,
+
   ],
   imports: [
     BrowserModule,

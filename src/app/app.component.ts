@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +29,17 @@ export class AppComponent {
         'content': severData.serverContent
       }
     )
+  }
+
+  @ViewChild('mylocalReferVaraCheckBox') mylocalReferProp: ElementRef; //@ViewChild()  decorator -> for this decorator we shld 
+  //pass argument as selector (or) name of the local reference vara as string (or) component class Name
+  // when local refer vara pass as argum in viewchild decorator it has data type of : ElementRef 
+
+  //This @ViewChild decorator provide way to access the html element inside typescipt (.ts) file
+  onChangeOfCheckBox() {
+    console.log(this.mylocalReferProp);
+    console.log(this.mylocalReferProp.nativeElement);
+    console.log(this.mylocalReferProp.nativeElement.checked);
   }
 
 }

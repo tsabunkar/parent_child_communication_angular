@@ -89,3 +89,17 @@ Sytnax (declaring local reference vara) ->  #user_define_name (placed as attribu
 This reference vaiable which is declared inside html element will give value as -> The complete html element (all the attribue, properties of that html element).
 Note : This refernce variable declared can ONLY be used in Template/html page. It cannot be used in ur (.ts)file
 
+
+---------------------------------------------------------------------------------------------------------
+@ViewChild() decorator ->  for this decorator we shld pass argument as - selector (or) name of the local     reference vara as string (or) component class Name. 
+ When local refer vara pass as argum in viewchild decorator it has data type of : ElementRef 
+
+This @ViewChild decorator provide way to access the complete html element inside typescipt (.ts) file.
+
+Thus there r 2 ways to access the complete html element inside the (.ts) typescipt file -
+1)Using local Reference variable in Template and passing refernce vara value inside some custome function
+2)Using local Reference variable in Template and passing value as argument inside @ViewChild() decorator
+
+
+---------------------------------------------------------------------------------------------------------
+<ng-content></ng-content> -> is the directive, it is called ng-content hook
