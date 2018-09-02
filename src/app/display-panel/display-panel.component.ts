@@ -1,6 +1,6 @@
 import {
   Component, OnInit, Input, OnChanges, SimpleChanges,
-  DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, OnDestroy
+  DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, OnDestroy, ViewChild, ElementRef
 } from '@angular/core';
 
 @Component({
@@ -50,6 +50,8 @@ export class DisplayPanelComponent implements OnInit, OnChanges, DoCheck,
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     console.log('ngOnInit called');
+    console.log('Text content is : ', this.headingVara.nativeElement.textContent);//we wont be able to 
+    //access the text value here in ngOnInit() method
   }
 
   ngDoCheck() {
@@ -62,6 +64,7 @@ export class DisplayPanelComponent implements OnInit, OnChanges, DoCheck,
     //Called after ngOnInit when the component's or directive's content has been initialized.
     //Add 'implements AfterContentInit' to the class.
     console.log('ngAfterContentInit called');
+
   }
 
   ngAfterContentChecked() {
@@ -74,6 +77,10 @@ export class DisplayPanelComponent implements OnInit, OnChanges, DoCheck,
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
     console.log('ngAfterViewInit called');
+    console.log('Text content is : ', this.headingVara.nativeElement.textContent);//In this method ngAfterViewInit()
+    //we will be getting the value for headingVara variable
+    //Thus, After view init method [ ngAfterViewInit() ] we get access to template / html elements,
+    //but before this life-cycle hook we can access any html elements
   }
 
   ngAfterViewChecked() {
@@ -88,4 +95,6 @@ export class DisplayPanelComponent implements OnInit, OnChanges, DoCheck,
     console.log('ngOnDestroy called');
   }
 
+  //headingVara value can only be accessed after ngAfterViewInit() method is called/ivoked by angular
+  @ViewChild('divHeading') headingVara: ElementRef;
 }
