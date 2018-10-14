@@ -17,15 +17,17 @@ export class DisplayPanelComponent implements OnInit, OnChanges, DoCheck,
   // which has name and content property
   //but refactor way wuld be by creating a class which has this property and 
   //then assiging this itemObj property with that class type
-  //Now we want to pass this itemObj property from displayPanelCompo (child comp)
-  // to inputPanelComponent (Parent comp), which can be done by @Input() decorator
+
+  //Now we want to bind this itemObj property (Child Comp -> displayPanelCompo) with elementObj which is each/single elem of 
+  // serverElement array (parent Comp -> AppComponent)
+  // so that we can pass inform/data from Parent comp to Child comp -> which can be done by @Input() decorator
+
   //@Input() -> is property level decorator
   //@Component() -> is class level decorator 
-  //@Input() -> allows the inform(itemObj value) to flow from Parnet Compon to
-  //Child Compon 
+  //@Input() -> allows the inform(itemObj value) to flow from Parnet Compon to Child Compon 
 
 
-  @Input("childCompo_Property") itemObj: { name: string, content: string };//Assigning the Alias to Custome properties
+  @Input("childCompo_Property") itemObj: { name: string, content: string };  //  Assigning the Alias to Custome properties
 
 
   //  #################### LIFE-CYCLE HOOK ##########################

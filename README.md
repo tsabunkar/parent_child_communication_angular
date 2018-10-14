@@ -33,9 +33,9 @@ Thus, to make property , function accessable outside the component, we shld use 
 
 
 -----------------------------------------------------------------------------------------------------
-Two components can communicate to each other using 2 ways -
-Parent-child communication
-Injecting Service (Creating a shared service class)
+# Two components can communicate to each other using 2 ways -
+`Parent-child communication`
+`Injecting Service (Creating a shared service class)`
 
 CASE SCENARIO : like communication b/w two sibbling compo then , If we do parent-child communication 
 its okay but bcomes complex bcoz - If child1 want to communicate to child2 then first child1 need to
@@ -67,6 +67,7 @@ F12> Element (and then inspect html element u will find) =>
 _ngcontent-ejo-2 -> this is set by angular, which helps angular to apply css property only the elem which 
 belongs its component.
 
+
 Note : We can override this view encapsulation provide by angular
 @Component({
    -----
@@ -78,6 +79,7 @@ encapsulation : ViewEncapsulation.Emulated -> View Encpulation is enabled
 encapsulation : ViewEncapsulation.None     -> View Encpulation is disabled/removed 
 encapsulation : ViewEncapsulation.Native   -> It uses shadow dom technology i.e- same as Emulated (View                                                   Encpulation is enabled but only for browser which supprt                                                    shadow DOM)
 By default Angular view encplaution is enabled i.e- ViewEncapsulation.Emulated
+
 
 
 -----------------------------------------------------------------------------------------------------
